@@ -7,9 +7,9 @@ import random as python_random
 import tensorflow
 import tensorflow as tf
 from tensorflow import keras
-from keras.api.models import  Sequential
-from keras.api.layers import Dense, InputLayer
-from keras.api.utils import to_categorical
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, InputLayer
+from tensorflow.keras.utils import to_categorical
 
 import pandas as pd
 import matplotlib.pyplot as plt

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Cafernandes/OneDrive/Ci%C3%AAncia%20de%20dados%20aplicada%20a%20sa%C3%BAde/Cultura%20a%20Pratica%20DatOps%20e%20Mlops/mlruns/0/82e63cd0fa2a4d0f901abc54af0d208e/artifacts
+end_time: 1754608732748
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 82e63cd0fa2a4d0f901abc54af0d208e
+run_name: experiment_mlops_ead
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754608728808
+status: 3
+tags: []
+user_id: Cafernandes
