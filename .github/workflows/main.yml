@@ -86,6 +86,6 @@ jobs:
       - name: Construir e Enviar a Imagem
         uses: docker/build-push-action@v5
         with:
-          context: . # Assumindo que o Dockerfile está na raiz. Se estiver em /mlOps, mude para './mlOps'
+          context: ./mlOps # Assumindo que o Dockerfile está na raiz. Se estiver em /mlOps, mude para './mlOps'
           push: true
           tags: ${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest
