@@ -69,23 +69,22 @@ jobs:
         run: python train.py
 
   # --- Job 3: Construir e Enviar a Imagem Docker ---
-  build-and-push-docker-image:
-    name: "Construir e Publicar Imagem Docker"
-    runs-on: ubuntu-latest
-    needs: train # Este job só começa se o job 'train' for concluído com sucesso
-    steps:
-      - name: Checkout do código
-        uses: actions/checkout@v4
+  # build-and-push-docker-image:
+  #  name: "Construir e Publicar Imagem Docker"
+  # runs-on: ubuntu-latest
+  # needs: train # Este job só começa se o job 'train' for concluído com sucesso
+  # steps:
+  #   - name: Checkout do código
+  #    uses: actions/checkout@v4
+#      - name: Login no Docker Hub
+#       uses: docker/login-action@v3
+#      with:
+#       username: ${{ secrets.DOCKER_USER }}
+#      password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Login no Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Construir e Enviar a Imagem
-        uses: docker/build-push-action@v5
-        with:
-          context: ./mlOps # Assumindo que o Dockerfile está na raiz. Se estiver em /mlOps, mude para './mlOps'
-          push: true
-          tags: ${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest
+# - name: Construir e Enviar a Imagem
+#  uses: docker/build-push-action@v5
+# with:
+#  context: ./mlOps # Assumindo que o Dockerfile está na raiz. Se estiver em /mlOps, mude para './mlOps'
+# push: true
+#tags: ${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest
