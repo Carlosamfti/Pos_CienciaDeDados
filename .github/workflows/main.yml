@@ -21,12 +21,12 @@ jobs:
     name: "Rodar Testes com Pytest"
     runs-on: ubuntu-latest
     steps:
-      - name: Grant write permissions
-        run: sudo chown -R $USER:$USER $GITHUB_WORKSPACE
-
       # 1. Baixa o código do repositório para a máquina virtual
       - name: Checkout do código
         uses: actions/checkout@v4 # Versão atualizada
+
+      - name: Grant write permissions
+        run: sudo chown -R $USER:$USER $GITHUB_WORKSPACE
 
       # 2. Configura o ambiente Python
       - name: Configurar Python 3.11
