@@ -66,13 +66,18 @@ def config_mlflow():
 
 
 def train_model(model,X_train,y_train,is_train=True):
-    with mlflow.start_run(run_name='experiment_mlops_ead') as run:
+    
+    from datetime import datetime
+    run_name = f"treino_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}"
+    
+    with mlflow.start_run(run_name=run_name) as run:
       model.fit(X_train,
                 y_train,
                 epochs=50,
                 validation_split=0.2,
                 verbose=3)
 
+      mlflow.keras.log_model(model, artifact_path="model")
       model.save("my_model_keras.keras")
 
 if __name__ == "__main__":
