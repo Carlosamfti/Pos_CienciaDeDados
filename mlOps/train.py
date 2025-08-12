@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
-
+from datetime import datetime
 
 
 def reset_seeds():
@@ -67,9 +67,9 @@ def config_mlflow():
 
 def train_model(model,X_train,y_train,is_train=True):
     
+    run_name = f"treino_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}"
     
-    
-    with mlflow.start_run(run_name="teste_12/08") as run:
+    with mlflow.start_run(run_name=run_name) as run:
       model.fit(X_train,
                 y_train,
                 epochs=50,
@@ -77,6 +77,7 @@ def train_model(model,X_train,y_train,is_train=True):
                 verbose=3)
 
       model.save("my_model_keras.keras")
+      mlflow.keras.log_model(keras_model=model,artifact_path="model")
 
 if __name__ == "__main__":
     X, y = read_data()
