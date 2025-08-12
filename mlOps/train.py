@@ -76,8 +76,7 @@ def train_model(model,X_train,y_train,is_train=True):
                 validation_split=0.2,
                 verbose=3)
 
-      model.save("my_model_keras.keras")
-      mlflow.keras.log_model(model,artifact_path="model")
+    mlflow.keras.log_model(model,artifact_path="model")
 
 if __name__ == "__main__":
     X, y = read_data()
