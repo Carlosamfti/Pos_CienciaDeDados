@@ -44,6 +44,11 @@ jobs:
       # 4. Roda os testes
       - name: Rodar os testes com Pytest
         working-directory: ./mlOps # CORREÇÃO: Define o diretório de trabalho
+
+        env:
+          MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
+          MLFLOW_TRACKING_USERNAME: ${{ secrets.MLFLOW_TRACKING_USERNAME }}
+          MLFLOW_TRACKING_PASSWORD: ${{ secrets.MLFLOW_TRACKING_PASSWORD }}
         run: pytest
 
   # --- Job 2: Treinar o modelo ---
