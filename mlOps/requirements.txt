@@ -1,10 +1,10 @@
 fastapi
 uvicorn[standard]
-mlflow
 scikit-learn
 pandas
 matplotlib
 pytest
 pycodestyle
 tensorflow
-dagshub
+mlflow==2.12.1
+dagshub==0.3.14
